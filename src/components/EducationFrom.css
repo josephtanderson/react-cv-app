@@ -1,9 +1,0 @@
-.education-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.education-input {
-    width: 80%;
-}

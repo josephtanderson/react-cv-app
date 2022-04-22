@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
-import './App.css';
+import styled from 'styled-components'
 import Card from './components/Card';
+
+const Container = styled.section`
+  background-color: aqua;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;`
 
 function App() {
   const [progress, setProgress ] = useState('1');
@@ -9,9 +19,9 @@ function App() {
     setProgress((Number(progress) + 1).toString())
   }
   return (
-    <div className="container">
+    <Container>
       <Card Progress={progress} nextCard={nextButton} />
-    </div>
+    </Container>
   );
 }
 

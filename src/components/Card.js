@@ -1,10 +1,21 @@
 import React from 'react';
+import styled from 'styled-components'
 import GeneralForm from './GeneralForm';
 import EducationForm from './EducationForm';
 import ExperienceForm from './ExperienceForm';
-import './Card.css'
 
 export default function Card(props) {
+    const StyledCard = styled.section`
+        height: 80vmin;
+        width: 80vmin;
+        min-height: 250px;
+        min-width: 250px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    `;
     const checkProgress = (progress) => {
     console.log(progress)
     switch (progress) {
@@ -23,11 +34,11 @@ export default function Card(props) {
   }
   let currentCard=checkProgress(props.Progress)
   return(
-    <div className="card">
+    <StyledCard>
         {currentCard}
         <button className="button" onClick={(e) => props.nextCard(e, props.Progress)}>
             NEXT
         </button>
-    </div>
+    </StyledCard>
   )
 }

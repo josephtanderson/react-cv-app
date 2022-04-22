@@ -1,5 +1,4 @@
 import React from 'react';
-import './EducationFrom.css'
 
 export default function EducationForm(props) {
     return (
