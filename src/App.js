@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Card from './components/Card';
 
 function App() {
+  const [progress, setProgress ] = useState('1');
+  function nextButton(e, progress) {
+    e.preventDefault();
+    setProgress((Number(progress) + 1).toString())
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Card Progress={progress} nextCard={nextButton} />
     </div>
   );
 }

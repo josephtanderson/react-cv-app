@@ -1,0 +1,12 @@
+.card {
+    height: 80vmin;
+    width: 80vmin;
+    min-height: 250px;
+    min-width: 250px;
+    background-color: white;
+    border: 1px red solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
