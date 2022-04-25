@@ -1,28 +1,26 @@
-import React, { useState } from 'react';
-import styled from 'styled-components'
-import Card from './components/Card';
+import React, { useState} from 'react';
+import styled from 'styled-components';
+// import CVForm from './components/CVForm';
+import CVPreview from './components/CVPreview';
 
 const Container = styled.section`
-  background-color: aqua;
+  background-color: #eee;
   margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;`
+  padding: 10vh 10vw;
+  width: 80vw;
+  `
 
-function App() {
-  const [progress, setProgress ] = useState('1');
-  function nextButton(e, progress) {
-    e.preventDefault();
-    setProgress((Number(progress) + 1).toString())
-  }
+
+
+  export default function App() {
+    const [ color, setColor ] = useState("#a86fac");
+    const handleColor = (e) => {
+      setColor(e.target.value)
+    }
   return (
     <Container>
-      <Card Progress={progress} nextCard={nextButton} />
+      {/* <CVForm /> */}
+      <CVPreview firstName="FIRSTNAME" lastName="Lastnamerson" accentColor={color} changeColor={handleColor} />
     </Container>
   );
 }
-
-export default App;
