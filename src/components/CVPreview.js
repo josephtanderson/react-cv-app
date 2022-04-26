@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from 'styled-components';
+import GeneralForm from './GeneralForm';
 import EducationList from './EducationList';
 import ExperienceList from './ExperienceList';
 
@@ -15,34 +16,56 @@ grid-template-rows: 20% 40% 40%;
 
 
 export default function CVPreview(props) {
+    const [ name, setName ] = useState({
+        firstName: 'FirstName',
+        lastName: 'LastNamerson'
+    })
+    const [ general, setGeneral ] = useState({
+        phone: '',
+        email: '',
+        linkedIn: '',
+        social: ''
+    });
+    const [ education, setEducation ] = useState({
+            institution: '',
+            yearStart: '',
+            yearEnd: '', 
+            degree: ''
+    });
+    const [ experience, setExperience ] = useState({
+            business: '',
+            yearStart: '',
+            yearEnd: '', 
+            responsibilities: ''
+    });
+    const [ color, setColor ] = useState("#a86fac");
+    const changeColor = (e) => {
+      setColor(e.target.value)
+    }
+    const onGeneralSubmit = (e, value) => {
+        e.preventDefault();
+    }
+    const onEduSubmit = (e, value) => {
+        e.preventDefault();
+    }
+    const onExpSubmit = (e, value) => {
+        e.preventDefault();
+    }
     const SectionHeader = styled.h2`
-        font-size: 36px;
+        font-size: 24px;
         border-top: 5px black solid;
-        color: ${props.accentColor};
+        color: ${color};
         `
+
     return (
         <StyledPreview>
-            <div style={{display: "grid", gridTemplateColumns: "1fr 30%", height: "fit-content", margin: "auto 0"}}>
-                <div style={{fontSize: "72px", lineHeight: "56px"}}>
-                    {props.firstName.toUpperCase()}<br />
-                    <span style={{color: props.accentColor}} onClick={(e) => {e.target.parentElement.parentElement.nextSibling.click()}} >
-                        {props.lastName.toUpperCase()}
-                    </span>
-                </div>
-                <div style={{fontSize: "large", alignSelf: "center"}}>
-                    Address:<br />
-                    Phone:<br />
-                    Email:<br />
-                    linkedIn:<br />
-                    Social:
-                </div>
-            </div>
-            <input style={{position: "absolute", left: "-10000px"}} type="color"  value={props.accentColor} onInput={(e) => props.changeColor(e)} />
+            <GeneralForm name={name} GeneralInfo={ general } setGeneral={ setGeneral } AccentColor={color} />
+            <input style={{position: "absolute", left: "-10000px"}} type="color"  value={color} onInput={(e) => changeColor(e)} />
             <div>
                 <SectionHeader onClick={(e) => {e.target.parentElement.previousSibling.click()}}>
                     EDUCATION
                 </SectionHeader>
-                <EducationList />
+                <EducationList edu={ education } setEdu={ setEducation } />
             </div>
             <div>
                 <SectionHeader onClick={(e) => {e.target.parentElement.previousSibling.previousSibling.click()}}>

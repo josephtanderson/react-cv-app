@@ -1,14 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import GenerateForm from './GenerateForm';
 
-const StyledEducation = styled.div`
+const StyledEducation = styled.ul`
     font-size: 18px;
 `
 
 export default function EducationForm(props) {
-    return (
+    const { edu, setEdu } = props;
+        return (
         <StyledEducation >
-            Education
+            <GenerateForm list={ edu } setMethod={ setEdu } />
         </StyledEducation>
     )
 }
