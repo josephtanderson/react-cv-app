@@ -13,6 +13,10 @@ overflow: hidden;
 display: grid;
 grid-template-rows: 20% 40% 40%;
 `
+const SectionHeader = styled.h2`
+font-size: 24px;
+border-top: 5px black solid;
+`
 
 
 export default function CVPreview(props) {
@@ -42,36 +46,21 @@ export default function CVPreview(props) {
     const changeColor = (e) => {
       setColor(e.target.value)
     }
-    const onGeneralSubmit = (e, value) => {
-        e.preventDefault();
-    }
-    const onEduSubmit = (e, value) => {
-        e.preventDefault();
-    }
-    const onExpSubmit = (e, value) => {
-        e.preventDefault();
-    }
-    const SectionHeader = styled.h2`
-        font-size: 24px;
-        border-top: 5px black solid;
-        color: ${color};
-        `
-
     return (
         <StyledPreview>
             <GeneralForm name={name} GeneralInfo={ general } setGeneral={ setGeneral } AccentColor={color} />
             <input style={{position: "absolute", left: "-10000px"}} type="color"  value={color} onInput={(e) => changeColor(e)} />
             <div>
-                <SectionHeader onClick={(e) => {e.target.parentElement.previousSibling.click()}}>
+                <SectionHeader style={{color: color}} onClick={(e) => {e.target.parentElement.previousSibling.click()}}>
                     EDUCATION
                 </SectionHeader>
                 <EducationList edu={ education } setEdu={ setEducation } />
             </div>
             <div>
-                <SectionHeader onClick={(e) => {e.target.parentElement.previousSibling.previousSibling.click()}}>
+                <SectionHeader style={{color: color}} onClick={(e) => {e.target.parentElement.previousSibling.previousSibling.click()}}>
                     EXPERIENCE
                 </SectionHeader>
-                <ExperienceList />
+                <ExperienceList edu={ experience } setEdu={ setExperience } />
             </div>
         </StyledPreview>
     )

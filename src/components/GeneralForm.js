@@ -14,9 +14,7 @@ line-height: 28px;
 `
 
 export default function GeneralForm(props) {
-    
     const { GeneralInfo, setGeneral, name } = props;
-
     return (
         <General>
             <StyledName >
@@ -26,7 +24,7 @@ export default function GeneralForm(props) {
                 </span>
             </StyledName>
             <div style={{fontSize: "medium", alignSelf: "center", display: "flex", justifyContent: "space-evenly"}}>
-                <GenerateForm list={GeneralInfo} setMethod={setGeneral} labels={true}/>
+                <GenerateForm list={GeneralInfo} setMethod={setGeneral} labels={true} justification={"right"} />
             </div>
         </General>
     )

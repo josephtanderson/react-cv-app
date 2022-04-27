@@ -11,6 +11,7 @@ export default function EducationForm(props) {
         return (
         <StyledEducation >
             <GenerateForm list={ edu } setMethod={ setEdu } />
+            <button>Add More</button>
         </StyledEducation>
     )
 }
